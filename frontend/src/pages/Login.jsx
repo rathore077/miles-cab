@@ -30,6 +30,7 @@ export default function Login() {
 
   
   return (
+    <div className="login-page">
     <div className="login-container">
       <h2>{isRegister ? "Register" : "Login"}</h2>
       <form onSubmit={handleSubmit}>
@@ -52,6 +53,7 @@ export default function Login() {
       <p onClick={() => setIsRegister(!isRegister)} style={{cursor:"pointer", color:"blue"}}>
         {isRegister ? "Already have an account? Login" : "Don't have an account? Register"}
       </p>
+    </div>
     </div>
   );
 }

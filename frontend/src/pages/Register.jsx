@@ -27,10 +27,11 @@ export default function Register() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
+    <div className="register-page">
+    <div className="auth-container">
       <h2>Register</h2>
       <form onSubmit={handleRegister}>
-        <div>
+        <div className="input-group">
           <label>Username:</label>
           <input
             type="text"
@@ -39,7 +40,7 @@ export default function Register() {
             required
           />
         </div>
-        <div>
+        <div className="input-group">
           <label>Password:</label>
           <input
             type="password"
@@ -50,6 +51,10 @@ export default function Register() {
         </div>
         <button type="submit">Sign Up</button>
       </form>
+      <p className="auth-toggle" onClick={() => navigate("/login")}>
+        Already have an account? Login
+      </p>
+    </div>
     </div>
   );
 }

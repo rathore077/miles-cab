@@ -32,9 +32,11 @@ export default function Navbar() {
       <ul className="nav-links">
       <li><Link to="/" >Home</Link></li>
       <li><Link to="/bookings" >My Bookings</Link></li>
-      <li><Link to="/login">Login</Link></li>
-      <li><Link to="/register" >Register</Link></li>
-      </ul>
+     </ul>
+     <div className="navbar-auth">
+      <Link to="/login" className="btn-login">Login</Link>
+      <Link to="/register" className="btn-register" >Register</Link>
+     </div>
     </nav>
   );
 }

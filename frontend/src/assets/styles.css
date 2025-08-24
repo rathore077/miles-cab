@@ -119,43 +119,98 @@ body {
 .book-btn:hover {
   background: #0056b3;
 }
-.login-container {
+.login-page,
+.register-page{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 70vh;
+  align-items: center;
+  min-height: 80vh; /* adjust based on navbar height */
+  background: #f8fafc; /* optional background for login page only */
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 300px;
+
+.login-container,
+.auth-container {
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+.login-container h2 ,
+.auth-container h2{
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e293b;
 }
 
-.input-field {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+/* Inputs */
+.login-container input,
+.auth-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: 0.3s ease;
 }
 
-.login-btn {
-  background: #4CAF50;
+.login-container input:focus,
+.auth-container input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.4);
+}
+
+/* Button */
+.login-container button,
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.login-btn:hover {
-  background: #45a049;
+.login-container button:hover,
+.auth-container button:hover {
+  background: #2563eb;
 }
+
+/* Toggle link */
+.login-container p ,
+.auth-container p{
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.login-container p:hover ,
+.auth-container p:hover{
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .error-text {
   color: red;
@@ -164,7 +219,7 @@ body {
 
 
 /* Navbar */
-.navbar {
+/* .navbar {
   background: #000;
   color: #fff;
   display: flex;
@@ -174,6 +229,22 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+} */
+ .navbar,
+ .footer {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #141801, #25a2eb);
+  padding: 0.8rem 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.footer p{
+  color: white;
+  padding-left: 45%;
 }
 
 /* Logo */
@@ -194,21 +265,64 @@ body {
 
 /* Links */
 .nav-links {
+  list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
+  
 }
 
 .nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px;
+text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
+  color: #e0e7ff;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
 .nav-links a:hover {
-  color: #f1c40f; /* yellow highlight on hover */
+  color: #fff; /* yellow highlight on hover */
+  border-bottom: 2px solid #facc15; /* yellow underline */
+  padding-bottom: 2px;
 }
+.navbar-auth {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-login, .btn-register {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-login {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn-login:hover {
+  background: #fff;
+  color: #2563eb;
+}
+
+.btn-register {
+  background: #facc15;
+  color: #111;
+}
+
+.btn-register:hover {
+  background: #eab308;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* later you can add a hamburger menu */
+  }
+}
+
 .search-bar {
   display: flex;
   align-items: center;
