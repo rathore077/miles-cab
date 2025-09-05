@@ -1,8 +1,7 @@
-
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,  // ✅ points to https://miles-cab.onrender.com
+  baseURL: import.meta.env.VITE_API_URL, // ✅ uses your .env
 });
 
 // Helper to get token from localStorage
@@ -15,17 +14,20 @@ const getAuthConfig = () => {
   };
 };
 
+// Create booking
 export const createBooking = async (data) => {
-  const res = await axios.post(API_URL, data, getAuthConfig());
+  const res = await API.post("/bookings", data, getAuthConfig());
   return res.data;
 };
 
+// Get all bookings for logged-in user
 export const getBookings = async () => {
-  const res = await axios.get(API_URL, getAuthConfig());
+  const res = await API.get("/bookings", getAuthConfig());
   return res.data;
 };
 
+// Cancel a booking
 export const cancelBooking = async (id) => {
-  const res = await axios.delete(`${API_URL}/${id}`, getAuthConfig());
+  const res = await API.delete(`/bookings/${id}`, getAuthConfig());
   return res.data;
 };

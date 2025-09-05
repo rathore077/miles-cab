@@ -41,14 +41,24 @@ const handleBookNow = async (rideId) => {
     }
     console.log("Booking ride with:", {  rideId, seats:1 });
 
-    const res = await createBooking({rideId, seats: 1 });
+    const res = await createBooking({rideId, seats: 1 },{headers:{
+      Authorization: `Bearer ${token}`
+    }});
     console.log("Booking response:", res);
 
     navigate("/bookings");
   } catch (err) {
     console.error("Error booking ride:", err.response?.data || err.message);
+    if (err.response?.status === 401) {
+        alert("Your session has expired. Please log in again.");
+        localStorage.removeItem("token"); // Clear the expired token
+        navigate("/login"); // Redirect to login page
+    }
   }
 };
+
+  
+
 
 
   return (
