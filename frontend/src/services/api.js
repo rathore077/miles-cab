@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL, // comes from your .env
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000", // comes from your .env
 });
 
 // Add token automatically if logged in
