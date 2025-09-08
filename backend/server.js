@@ -19,7 +19,10 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://miles-cab.vercel.app"], // deployed frontend URL
+  credentials: true
+}));
 app.use(express.json());
 
 // API Routes
@@ -27,16 +30,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/rides", rideRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-// Serve frontend (after build, React will be in ../frontend/dist)
-// const frontendPath = path.join(__dirname, "../frontend/dist");
-// app.use(express.static(frontendPath));
 
-// // React Router fallback (must be last, after API routes)
-// app.get("/*wildcard", (req, res) => {
-//   res.sendFile(path.join(frontendPath, "index.html"));
-// });
-
-// Error Handler (last middleware)
 app.use(errorHandler);
 
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
