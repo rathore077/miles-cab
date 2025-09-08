@@ -28,13 +28,13 @@ app.use("/api/rides", rideRoutes);
 app.use("/api/bookings", bookingRoutes);
 
 // Serve frontend (after build, React will be in ../frontend/dist)
-const frontendPath = path.join(__dirname, "../frontend/dist");
-app.use(express.static(frontendPath));
+// const frontendPath = path.join(__dirname, "../frontend/dist");
+// app.use(express.static(frontendPath));
 
-// React Router fallback (must be last, after API routes)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
+// // React Router fallback (must be last, after API routes)
+// app.get("/*wildcard", (req, res) => {
+//   res.sendFile(path.join(frontendPath, "index.html"));
+// });
 
 // Error Handler (last middleware)
 app.use(errorHandler);
