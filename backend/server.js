@@ -29,6 +29,9 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/rides", rideRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running!");
+});
 
 
 app.use(errorHandler);
